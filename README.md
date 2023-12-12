@@ -48,14 +48,14 @@
    - **LangChain Compatibility**: The server should be capable of running LangChain, which may involve specific Python versions and additional dependencies.
 
 6. **Scalability**:
-   - Consider the scalability of your infrastructure. If your data volume is expected to grow, your infrastructure should be capable of scaling up to accommodate this increase.
+   - Consider the scalability of our infrastructure. If our data volume is expected to grow, our infrastructure should be capable of scaling up to accommodate this increase.
    - Using cloud services can provide easier scalability compared to on-premises solutions.
 
 7. **Reliability and Redundancy**:
-   - For mission-critical applications, ensure your infrastructure is reliable and has redundancy in place to handle failures and ensure data integrity.
+   - For mission-critical applications, ensure our infrastructure is reliable and has redundancy in place to handle failures and ensure data integrity.
 
 8. **Security**:
-   - Implement adequate security measures to protect your data, especially if it contains sensitive information.
+   - Implement adequate security measures to protect our data, especially if it contains sensitive information.
 
 9. **Cost Management**:
    - Balance performance requirements with cost, particularly if using cloud services where expenses can scale with resource usage.
@@ -66,3 +66,30 @@
 ### mindmap of workflow for this vector store generating process ###
 
 <img width="972" alt="Screen Shot 2023-12-11 at 3 52 50 PM" src="https://github.com/Jessicanyc/Langchain-with-Vector-Store/assets/151873693/6538e09b-a960-44b5-aeb6-d2b114775f12">
+
+### Details how the vector features passed to external AI for process response:
+The process of retrieving corresponding snippets of text from the vector features in a vector store involves a few steps 
+
+1. **Indexing the Text:**
+   - When creating a vector store using a tool like BERT in conjunction with Langchain, each snippet of text from your documents (e.g., sentences, paragraphs) is converted into a vector representation. 
+   - Along with storing these vector features, the system also maintains a reference to the original text snippet that each vector represents.
+
+2. **Query Processing:**
+   - When a query is received, it is also converted into a vector representation using the same method (e.g., BERT).
+   - This query vector is then used to search the vector store for the most similar vector features.
+
+3. **Retrieving Text Snippets:**
+   - The search in the vector store yields vector features that are most similar or relevant to the query vector.
+   - For each of these selected vector features, the system references back to the corresponding original text snippets.
+   - These text snippets are not reconverted from the vectors; rather, they are retrieved through the mapping or linkage established during the indexing phase.
+   - Essentially, the system knows which text snippet each vector feature is associated with, so once it identifies the relevant vectors, it can directly fetch the corresponding text.
+
+4. **Use in Response Generation:**
+   - The retrieved text snippets, which are now identified as relevant to the query, are then used as input or context in conjunction with an external AI service like OpenAI's models for generating a response.
+
+This process allows the system to leverage the semantic understanding encoded in the vector features to find the most relevant text snippets from our documents. The efficiency and accuracy of this process largely depend on the quality of the initial text-to-vector conversion and the effectiveness of the similarity search within the vector store.
+
+## Compared Langchain vector store solution with RAG with External Documents (PDF Handbook):
+In both RAG and the Langchain approach, the PDF handbook might be converted into a format that can be searched by the AI (like a vector store). However, the key difference is in how the AI accesses and uses this data. 
+   - In RAG, the AI model may have more direct and broad access to search the entire indexed content, 
+   - In the Langchain approach, the retrieval of relevant snippets is typically done before interacting with the AI model, giving you more control over what specific information is sent to the AI.
