@@ -1,4 +1,4 @@
-## Leverage Langchain and OpenAI api to build ##Question&Answer Service?
+## Leverage Langchain and OpenAI api to build ##Question&Answer Service
 
 1. **Building the Local Vector Store with BERT**:
    - Initially, use LangChain to process organization's proprietary documents (like a handbook) and create embeddings. This involves generating vector representations of the content, which are then stored in your local vector store.
