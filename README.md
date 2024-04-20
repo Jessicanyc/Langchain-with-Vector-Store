@@ -1,4 +1,4 @@
-## Leverage Langchain and OpenAI api to build ##Question&Answer Service
+## Leverage Langchain and OpenAI api to build Question&Answer Service
 
 1. **Building the Local Vector Store with BERT**:
    - Initially, use LangChain to process organization's proprietary documents (like a handbook) and create embeddings. This involves generating vector representations of the content, which are then stored in your local vector store.
@@ -41,18 +41,18 @@
    - **Type of Storage**: Fast SSDs (Solid State Drives) are preferable for quicker read/write operations, which can impact overall performance.
 
 4. **Network Bandwidth**:
-   - If you are using cloud-based resources or need to transfer data between different systems, adequate network bandwidth is important to avoid bottlenecks in data movement.
+   - If using cloud-based resources or need to transfer data between different systems, adequate network bandwidth is important to avoid bottlenecks in data movement.
 
 5. **Software Environment**:
-   - **Machine Learning Libraries**: Ensure you have the necessary machine learning libraries installed, such as TensorFlow or PyTorch, which are required to run BERT.
+   - **Machine Learning Libraries**: Ensure necessary machine learning libraries installed, here I use TensorFlow, which are required to run BERT.
    - **LangChain Compatibility**: The server should be capable of running LangChain, which may involve specific Python versions and additional dependencies.
 
 6. **Scalability**:
-   - Consider the scalability of our infrastructure. If our data volume is expected to grow, our infrastructure should be capable of scaling up to accommodate this increase.
+   - Consider the scalability of the infrastructure. If the data volume is expected to grow, the infrastructure should be capable of scaling up to accommodate this increase.
    - Using cloud services can provide easier scalability compared to on-premises solutions.
 
 7. **Reliability and Redundancy**:
-   - For mission-critical applications, ensure our infrastructure is reliable and has redundancy in place to handle failures and ensure data integrity.
+   - ensure the infrastructure is reliable and has redundancy in place to handle failures and ensure data integrity.
 
 8. **Security**:
    - Implement adequate security measures to protect our data, especially if it contains sensitive information.
